@@ -3,12 +3,12 @@ import booksRouter from "./app/controllers/books.controller";
 import borrowRouter from "./app/controllers/borrow.controller";
 import { globalErrorHandler } from "./app/middlewares/error.handler";
 import { unknownEndpoint } from "./app/middlewares/unknown.endpoint";
-import cors from "cors";
+//import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
-app.use(cors({ origin: ["http://localhost:5173"] }));
+//app.use(cors({ origin: ["http://localhost:5173"] }));
 
 app.use((req, res, next) => {
   console.log(req.method, req.path, req.body);
