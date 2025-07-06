@@ -28,7 +28,7 @@ booksRouter.post("/", (req, res, next) => __awaiter(void 0, void 0, void 0, func
 }));
 // 2. Get All Books
 booksRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { filter, sortBy, sort = "asc", limit = 10, } = req.query;
+    const { filter, sortBy, sort = "asc", page = 0, limit = 10, } = req.query;
     const books = yield book_model_1.Book.find(filter
         ? {
             genre: filter,
@@ -39,7 +39,8 @@ booksRouter.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* (
             [sortBy]: sort,
         }
         : {})
-        .limit(limit);
+        .limit(Number(limit))
+        .skip(Number(page) * Number(limit));
     res.status(200).json({
         success: true,
         message: "Books retrieved successfully",

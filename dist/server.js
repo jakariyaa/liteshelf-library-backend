@@ -23,7 +23,7 @@ function bootstrap() {
             const { connection } = yield mongoose_1.default.connect(process.env.MONGO_URI || "");
             console.log("Connected to MongoDB at", connection.host);
             server = app_1.default.listen(port, () => {
-                console.log(`Server is running on http://localhost:${port}`);
+                console.log(`Server is running on ${port}`);
             });
         }
         catch (error) {

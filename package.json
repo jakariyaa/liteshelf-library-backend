@@ -6,7 +6,7 @@
     "dev": "tsx --watch src/server.ts",
     "start": "node dist/server.js",
     "build": "tsc",
-    "deploy": "git add . && git commit -m 'deploy' && git push origin main"
+    "deploy": "tsc && git add . && git commit -m 'deploy' && git push origin main"
   },
   "keywords": [],
   "author": "Jakariya Abbas",
