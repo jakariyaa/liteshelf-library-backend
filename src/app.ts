@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Welcome to the Library Management API");
+  res.send("Welcome to the LiteShelf Library API");
 });
 
 app.use("/api/books", booksRouter);
