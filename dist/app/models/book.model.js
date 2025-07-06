@@ -62,6 +62,9 @@ bookSchema.pre("save", function (next) {
     if (this.copies > 0) {
         this.available = true;
     }
+    else if (this.copies === 0) {
+        this.available = false;
+    }
     next();
 });
 // Mongoose middleware (post-save hook)
